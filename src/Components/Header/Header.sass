@@ -1,0 +1,21 @@
+@import '../Mixins/Fonts'
+.logo
+	height: auto
+	width: 400px
+.header 
+	display: flex
+	justify-content: center
+	align-items: center
+	&-list
+		@include fonts
+		display: flex
+		list-style-type: none
+		margin-left: 60px
+		margin-right: 60px
+		text-decoration: none
+		&_item__link
+			text-decoration: none
+			color: #000
+		&_item:not(last-child)
+			margin-right: 40px
+			text-decoration: none

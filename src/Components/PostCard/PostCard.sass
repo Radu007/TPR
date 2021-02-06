@@ -1,0 +1,42 @@
+@import '../Mixins/Fonts'
+
+.post-card
+	display: flex
+	padding: 40px 67px
+	max-width: 1000px
+	margin: 0 auto
+	background: rgba(224,224,224,0.25)
+	margin-bottom: 40px
+	&__image
+		width: 429px;
+		height: 437px;
+		margin-right: 40px
+	&-left 
+		@include fonts
+		&_title
+			font-size: 40px
+			line-height: 45px;
+		&_author
+			font-size: 30px
+			margin-top: 10px
+		&_description
+			font-size: 20px
+			margin-top: 30px
+			height: 315px
+			line-height: 2rem
+			-webkit-box-orient: vertical;
+			display: block;
+			display: -webkit-box;
+			overflow: hidden !important;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 10
+			// another trunc text method
+					// white-space: inherit
+			// text-overflow: clip
+			// overflow: hidden
+			// width: 400px
+
+
+			
+
+
