@@ -1,25 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React from 'react'
 import PostCard from '../PostCard/PostCard'
-import axios from 'axios'
+import { useHistory } from "react-router-dom"
 
 
-function Main() {
-	const url = 'https://601e7239b5a0e90017069ac2.mockapi.io/Article'
-	const [articles, setArticles] = useState(null)
+function Main({articles}) {
+	const history = useHistory()
 
-	useEffect(() => {
-		axios.get(url).then((response) => {
-		setArticles(response.data)
-	})
-	}, [url])
-	console.log(articles);
 
-	return (
-
+return (
 		<div>
-			{articles?.map((article) => (
-				<PostCard headline={article.headline} author={article.name} description={article.description} image={article.image}  />
-			))}
+			  {articles?.map((article) => (
+				<PostCard onClick={() => history.push(`/post/${article.id}`)} key={article.id} headline={article.headline} author={article.name} description={article.description} image={article.image}  />
+			))} 
+
+			
 		</div>
 	)
 }

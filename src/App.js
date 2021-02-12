@@ -1,4 +1,7 @@
+import React, {useState, useEffect} from 'react'
 import './App.css';
+import axios from 'axios'
+
 
 import {
   BrowserRouter as Router,
@@ -9,15 +12,40 @@ import {
 import Header from "./Components/Header/Header.jsx"
 import Main from './Components/Main/Main';
 import Article from './Components/Article/Article'
+import About from './Components/About/About';
 
 function App() {
+
+	const url = 'http://localhost:8000'
+	const [articles, setArticles] = useState([])
+	
+
+	useEffect(() => {
+		axios.get(url).then((response) => {
+		setArticles(response.data)
+	})
+	}, [url])
+
   return (
 		<Router>
-    <div className="app">			
+    <div className="app">
 				<Route path="/" component={Header} />
 			<Switch>
-				<Route exact path='/' component={Main} />
-				<Route exact path='/Article/:id' component={Article} />
+
+				<Route exact path="/">
+					<h1>Main page</h1>
+				</Route>
+
+				<Route path='/about' component={About} />
+
+				<Route exact path="/post">
+					<Main articles={articles}/>
+				</Route>
+
+				<Route path='/post/:id'>
+					<Article articles={articles} />
+				</Route>
+
 			</Switch>
 		
     </div>

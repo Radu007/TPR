@@ -8,7 +8,7 @@ function Header() {
 			<ul className="header-list">
 				<li className="header-list_item"><a className='header-list_item__link' href="/">Acasa</a></li>
 				<li className="header-list_item"><a className='header-list_item__link' href="/about">About</a></li>
-				<li className="header-list_item"><a className='header-list_item__link' href="/posts">Postrări</a></li>
+				<li className="header-list_item"><a className='header-list_item__link' href="/post">Postrări</a></li>
 			</ul>
 		</div>
 	)
