@@ -19,13 +19,20 @@ function App() {
 	const url = 'http://localhost:8000'
 	const [articles, setArticles] = useState([])
 	
-	const etSamaia = () => {axios.get(url).then((response) => {
-			setArticles(response.data)
-		})}
+	// const etSamaia = () => {axios.get(url).then((response) => {
+	// 		setArticles(response.data)
+	// 	})}
+
+	// useEffect(() => {
+  // etSamaia()
+  // }, [])
 
 	useEffect(() => {
-  etSamaia()
-  }, [])
+		axios.get(url).then((response) => {
+			setArticles(response.data)
+		})
+		
+	}, [])
 
 
   return (
@@ -45,7 +52,7 @@ function App() {
 				</Route>
 
 				<Route path='/post/:id'>
-					{articles && <Article articles={articles} asaProp={etSamaia}/>}
+					{articles && <Article articles={articles} />}
 				</Route>
 
 				{/* <Route 

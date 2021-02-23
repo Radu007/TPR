@@ -2,7 +2,7 @@ import React, {useEffect} from 'react'
 import { useParams } from "react-router-dom"
 
 
-function Article({articles, asaProp}) {
+function Article({articles}) {
 	const {id} = useParams()
 	
 	
@@ -12,12 +12,13 @@ function Article({articles, asaProp}) {
 		})
 		return idReturned
 	}
-
+	
+	// useEffect(() => {
+  //   asaProp();
+  // }, [])
+  
   let neededArticle = findArticle(articles, id)
 
-	componentDidMount() {
-		console.log(neededArticle);
-	}
 	
 	
 
