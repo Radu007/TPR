@@ -48,11 +48,11 @@ function App() {
 					{articles && <Article articles={articles} asaProp={call}/>}
 				</Route>
 
-				<Route 
+				{/* <Route 
 					path='/post/:id'
 					render={(props) => (
 						<Article articles={props.articles} asaProp={props.call}/>
-					)} />
+					)} /> */}
 
 
 
