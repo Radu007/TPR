@@ -19,12 +19,14 @@ function App() {
 	const url = 'http://localhost:8000'
 	const [articles, setArticles] = useState([])
 	
+	const call = () => {axios.get(url).then((response) => {
+			setArticles(response.data)
+		})}
 
 	useEffect(() => {
-		axios.get(url).then((response) => {
-		setArticles(response.data)
-	})
-	}, [url])
+  call()
+  }, [url])
+
 
   return (
 		<Router>
@@ -39,12 +41,20 @@ function App() {
 				<Route path='/about' component={About} />
 
 				<Route exact path="/post">
-					<Main articles={articles}/>
+					<Main articles={articles} />
 				</Route>
 
-				<Route path='/post/:id'>
-					<Article articles={articles} />
-				</Route>
+				{/* <Route path='/post/:id'>
+					{articles && <Article articles={articles} asaProp={call}/>}
+				</Route> */}
+
+				<Route 
+					path='/post/:id'
+					render={(props) => (
+						<Article articles={props.articles} asaProp={props.call}/>
+					)} />
+
+
 
 			</Switch>
 		
