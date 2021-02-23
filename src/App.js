@@ -44,9 +44,9 @@ function App() {
 					<Main articles={articles} />
 				</Route>
 
-				{/* <Route path='/post/:id'>
+				<Route path='/post/:id'>
 					{articles && <Article articles={articles} asaProp={call}/>}
-				</Route> */}
+				</Route>
 
 				<Route 
 					path='/post/:id'
