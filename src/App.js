@@ -19,13 +19,13 @@ function App() {
 	const url = 'http://localhost:8000'
 	const [articles, setArticles] = useState([])
 	
-	const call = () => {axios.get(url).then((response) => {
+	const etSamaia = () => {axios.get(url).then((response) => {
 			setArticles(response.data)
 		})}
 
 	useEffect(() => {
-  call()
-  }, [url])
+  etSamaia()
+  }, [])
 
 
   return (
@@ -45,7 +45,7 @@ function App() {
 				</Route>
 
 				<Route path='/post/:id'>
-					{articles && <Article articles={articles} asaProp={call}/>}
+					{articles && <Article articles={articles} asaProp={etSamaia}/>}
 				</Route>
 
 				{/* <Route 

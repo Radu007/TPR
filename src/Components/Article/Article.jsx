@@ -12,13 +12,12 @@ function Article({articles, asaProp}) {
 		})
 		return idReturned
 	}
-	
-	useEffect(() => {
-    asaProp();
-  }, [])
-  
+
   let neededArticle = findArticle(articles, id)
 
+	componentDidMount() {
+		console.log(neededArticle);
+	}
 	
 	
 
